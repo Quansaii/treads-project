@@ -1,42 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body{
+    background: black;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container{
+    width: 40%;
+    margin: 100px auto 0;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: rgb(37, 36, 36);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.post{
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border-bottom: 1px solid gray;
 }
 
-.card {
-  padding: 2em;
+.avatar-section{
+    width: 50px;
+    height: 50px;
 }
 
-.read-the-docs {
-  color: #888;
+.avatar-section img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nickname{
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.info{
+    width: 90%;
+}
+
+.post-text{
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+    overflow-wrap: break-word;
 }
