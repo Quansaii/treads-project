@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Posts } from './Posts'
+import { Posts } from './Components/Posts'
+import { AddPostButton } from './Components/AddPostButton'
 
 import './App.css'
 
@@ -14,6 +15,8 @@ function App() {
           <Posts/>
           <Posts/>
       </div>
+
+      <AddPostButton/>
     </>
   )
 }
