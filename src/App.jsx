@@ -10,10 +10,6 @@ function App() {
     <>
       <div className="container">
           <Posts/>
-          <Posts/>
-          <Posts/>
-          <Posts/>
-          <Posts/>
       </div>
 
       <AddPostButton/>

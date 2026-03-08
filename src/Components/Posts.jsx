@@ -1,15 +1,38 @@
+import { useEffect, useState } from "react"
+import axios from 'axios'
+
 export function Posts(){
+
+    const [posts, setPosts] = useState(null);
+    const [isError, setIsError] = useState(null);
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+        try {
+            const url = "https://jsonplaceholder.typicode.com/posts";
+            const data = await axios.get(url);
+            
+            setPosts(data.data);
+
+
+        } catch (error) {
+            console.log("Error")
+        }}
+
+        fetchData();
+    },[])
+
     return(
         <>
-            <div className="post">
-                <div className="avatar-section">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6bgexWcSEbSAvXvk3YIDfijim1W6_ynrCmQ&s" alt="" />
-                </div>
-                <div className="info">
-                    <div className="nickname">katarinablue</div>
-                    <div className="post-text">fasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnklfasfmkasnfoasnfsanfjnasfijnsafonmsalkfnkl</div>
-                </div>
-            </div>
+            {posts?.map(post => (
+                    <div className="post">
+                        <div className="info">
+                            <div className="title">{post?.title}</div>
+                            <div className="post-text">{post?.body}</div>
+                        </div>
+                    </div>
+                ))
+                }
         </>
     )
 }
